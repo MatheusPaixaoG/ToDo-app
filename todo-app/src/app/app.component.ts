@@ -27,11 +27,13 @@ export class AppComponent {
     this.todoDataService.addTodo(todo);
   }
 
-  toggleTodoComplete(todo: Todo): void {
+  // rename from toggleTodoComplete
+  onToggleTodoComplete(todo: Todo): void {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo: Todo): void {
+  // rename from removeTodo
+  onRemoveTodo(todo: Todo): void {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
