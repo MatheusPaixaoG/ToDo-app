@@ -16,9 +16,15 @@ export class AppComponent {
   constructor(private todoDataService: TodoDataService) {
   }
 
-  addTodo(): void {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+  // No longer needed, now handled by TodoListHeaderComponent
+  // addTodo(): void {
+  //   this.todoDataService.addTodo(this.newTodo);
+  //   this.newTodo = new Todo();
+  // }
+
+  // New method to handle event emitted by TodoListHeaderComponent
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
 
   toggleTodoComplete(todo: Todo): void {
