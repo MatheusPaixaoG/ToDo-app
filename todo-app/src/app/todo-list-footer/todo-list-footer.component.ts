@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Todo } from '../todo';
 
 @Component({
   selector: 'app-todo-list-footer',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list-footer.component.css']
 })
 export class TodoListFooterComponent implements OnInit {
+
+  @Input()
+  todos!: Todo[];
 
   constructor() { }
 
