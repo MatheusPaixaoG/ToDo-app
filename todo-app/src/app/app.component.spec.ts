@@ -1,21 +1,46 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ApiMockService } from './api-mock.service';
+import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
 import { Todo } from './todo';
+import { TodoDataService } from './todo-data.service';
 
 describe('AppComponent', () => {
+  let httpTestingController: HttpTestingController;
+
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        TodoDataService,
+        {
+          provide: ApiService,
+          useClass: ApiMockService
+        }
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ],
       imports: [
         RouterTestingModule,
-        FormsModule
+        FormsModule,
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent
-      ],
+      ]
     }).compileComponents();
+
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
+
+  afterEach(() => {
+    httpTestingController.verify();
+  })
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
