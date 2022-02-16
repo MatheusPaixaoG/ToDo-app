@@ -28,22 +28,33 @@ export class ApiService {
   }
 
   // API: POST /todos
-  public createTodo(todo: Todo) {
+  public createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post(API_URL + '/todos', todo).pipe(map(response => {
+      return new Todo(JSON.parse(JSON.stringify(response)));
+    })).pipe(catchError(this.handleError));
     // will use this.http.post()
   }
 
   // API: GET /todos/:id
-  public getTodoById(todoId: number) {
+  public getTodoById(todoId: number): Observable<Todo> {
+    return this.http.get(API_URL + '/todos/' + todoId).pipe(map(response => {
+      return new Todo(JSON.parse(JSON.stringify(response)));
+    })).pipe(catchError(this.handleError));
     // will use this.http.get()
   }
 
   // API: PUT /todos/:id
-  public updateTodo(todo: Todo) {
+  public updateTodo(todo: Todo): Observable<Todo> {
+    return this.http.put(API_URL + '/todos/' + todo.id, todo).pipe(map(response => {
+      return new Todo(JSON.parse(JSON.stringify(response)));
+    })).pipe(catchError(this.handleError));
     // will use this.http.put()
   }
 
   // DELETE /todos/:id
-  public deleteTodoById(todoId: number) {
+  public deleteTodoById(todoId: number): Observable<null> {
+    return this.http.delete(API_URL + '/todos/' + todoId).pipe(map(response => null))
+      .pipe(catchError(this.handleError));
     // will use this.http.delete()
   }
 }
