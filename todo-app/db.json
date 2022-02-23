@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "title": "Read SitePoint article",
-      "complete": false,
-      "id": 1
-    },
-    {
       "title": "Make restaurant reservation",
       "complete": false,
       "id": 3

@@ -54,10 +54,11 @@ describe('AppComponent', () => {
     expect(app.newTodo instanceof Todo).toBeTruthy;
   })
 
-  it('should display "Todos" in h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Todos');
-  })
+  // Test moved to todo-list-header.component.spec.ts
+  // it('should display "Todos" in h1 tag', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.debugElement.nativeElement;
+  //   expect(compiled.querySelector('h1').textContent).toContain('Todos');
+  // })
 });

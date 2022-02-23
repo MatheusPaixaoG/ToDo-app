@@ -14,6 +14,7 @@ export class TodoListFooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.todos = [];
   }
 
 }

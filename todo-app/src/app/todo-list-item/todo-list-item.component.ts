@@ -33,6 +33,7 @@ export class TodoListItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.todo = new Todo({ id: 1, title: 'Read article', complete: false });
   }
 
 }

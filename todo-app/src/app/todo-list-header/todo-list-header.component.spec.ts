@@ -8,9 +8,9 @@ describe('TodoListHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoListHeaderComponent ]
+      declarations: [TodoListHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +22,11 @@ describe('TodoListHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display "Todos" in h1 tag', () => {
+    const fixture = TestBed.createComponent(TodoListHeaderComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Todos');
+  })
 });
