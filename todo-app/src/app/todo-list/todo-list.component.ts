@@ -10,7 +10,7 @@ export class TodoListComponent implements OnInit {
 
   // Marking todos with @Input() decorator allows us to inject the todos from the parent component.
   @Input()
-  todos!: Todo[];
+  todos: Todo[] = [];
 
   // These are just 2 output events
   @Output()
@@ -30,7 +30,6 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todos = [];
   }
 
 }

@@ -9,12 +9,11 @@ import { Todo } from '../todo';
 export class TodoListFooterComponent implements OnInit {
 
   @Input()
-  todos!: Todo[];
+  todos: Todo[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.todos = [];
   }
 
 }

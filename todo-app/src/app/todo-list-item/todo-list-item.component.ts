@@ -10,7 +10,7 @@ export class TodoListItemComponent implements OnInit {
 
   // Marking todos with @Input() decorator allows us to inject the todos from the parent component.
   @Input()
-  todo!: Todo;
+  todo: Todo = new Todo({ id: 1, title: 'Read article', complete: false });
 
   // These are just 2 output events
   @Output()
@@ -33,7 +33,6 @@ export class TodoListItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todo = new Todo({ id: 1, title: 'Read article', complete: false });
   }
 
 }

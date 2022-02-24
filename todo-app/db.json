@@ -1,14 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "Make restaurant reservation",
-      "complete": false,
-      "id": 3
-    },
-    {
-      "title": "oi",
-      "complete": false,
-      "id": 5
-    }
-  ]
+  "todos": []
 }
