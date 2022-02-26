@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 import { Todo } from '../todo';
 import { TodoDataService } from '../todo-data.service';
 
@@ -12,7 +14,7 @@ export class TodosComponent implements OnInit {
   newTodo: Todo = new Todo();
   todos: Todo[] = [];
 
-  constructor(private todoDataService: TodoDataService) {
+  constructor(private todoDataService: TodoDataService, private route: ActivatedRoute) {
   }
 
   // No longer needed, now handled by TodoListHeaderComponent
@@ -22,7 +24,7 @@ export class TodosComponent implements OnInit {
   // }
 
   public ngOnInit() {
-    this.todoDataService.getAllTodos().subscribe(
+    this.route.data.pipe(map((data) => data['todos'])).subscribe(
       (todos) => {
         this.todos = todos;
       }
