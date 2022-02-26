@@ -11,6 +11,8 @@ import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.com
 import { TodoDataService } from './todo-data.service';
 import { ApiService } from './api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TodosComponent } from './todos/todos.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     TodoListHeaderComponent,
     TodoListComponent,
     TodoListItemComponent,
-    TodoListFooterComponent
+    TodoListFooterComponent,
+    TodosComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
