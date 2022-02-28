@@ -13,6 +13,7 @@ import { ApiService } from './api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TodosComponent } from './todos/todos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SessionService } from './session.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   providers: [
     TodoDataService,
     ApiService,
-    HttpClient
+    HttpClient,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })

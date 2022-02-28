@@ -13,6 +13,14 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  public signIn(username: string, password: string) {
+    return this.http
+      .post(API_URL + '/sign-in', {
+        username,
+        password
+      }).pipe(map(response => JSON.parse(JSON.stringify(response)))).pipe(catchError(this.handleError));
+  }
+
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
     return throwError(() => error);
