@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TodosComponent } from './todos/todos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SessionService } from './session.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SessionService } from './session.service';
     TodoDataService,
     ApiService,
     HttpClient,
-    SessionService
+    SessionService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
