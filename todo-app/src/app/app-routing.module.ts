@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 import { TodosResolver } from './todos.resolver';
 import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'todos',
+    redirectTo: 'sign-in',
     pathMatch: 'full'
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
   },
   {
     path: 'todos',
