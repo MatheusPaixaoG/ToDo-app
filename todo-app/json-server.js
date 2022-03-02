@@ -18,6 +18,7 @@ server.use(bodyParser.json());
 server.post('/sign-in', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  console.log('chegou no post');
   if(username === 'demo' && password === 'demo') {
     res.json({
       name: 'SitePoint Reader',
