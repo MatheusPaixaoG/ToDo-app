@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
+import { AuthService } from '../auth.service';
 import { Todo } from '../todo';
 import { TodoDataService } from '../todo-data.service';
 
@@ -14,7 +15,10 @@ export class TodosComponent implements OnInit {
   newTodo: Todo = new Todo();
   todos: Todo[] = [];
 
-  constructor(private todoDataService: TodoDataService, private route: ActivatedRoute) {
+  constructor(private todoDataService: TodoDataService,
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private router: Router) {
   }
 
   // No longer needed, now handled by TodoListHeaderComponent
@@ -57,6 +61,11 @@ export class TodosComponent implements OnInit {
       }
     );
     this.todoDataService.deleteTodoById(todo.id);
+  }
+
+  doSignOut() {
+    this.auth.doSignOut();
+    this.router.navigate(['/sign-in']);
   }
 
 }
