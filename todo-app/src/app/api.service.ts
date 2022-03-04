@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Todo } from './todo';
 import { map, Observable, catchError, throwError } from 'rxjs';
 import { SessionService } from './session.service';
@@ -19,7 +19,7 @@ export class ApiService {
       .post(API_URL + '/sign-in', {
         username,
         password
-      }).pipe(map(response => JSON.parse(JSON.stringify(response)))).pipe(catchError(this.handleError));
+      }).pipe(catchError(this.handleError));
   }
 
   private handleError(error: Response | any) {
@@ -31,8 +31,8 @@ export class ApiService {
   public getAllTodos(): Observable<Todo[]> {
     const options = this.getRequestOptions();
     return this.http.get(API_URL + '/todos', options).pipe(map(response => {
-      const todos = JSON.parse(JSON.stringify(response));
-      return todos.map((todo: Object | undefined) => new Todo(todo));
+      const todos = <any[]>response;
+      return todos.map((todo) => new Todo(todo));
     })).pipe(catchError(this.handleError));
     // will use this.http.get()
   }
@@ -41,7 +41,7 @@ export class ApiService {
   public createTodo(todo: Todo): Observable<Todo> {
     const options = this.getRequestOptions();
     return this.http.post(API_URL + '/todos', todo, options).pipe(map(response => {
-      return new Todo(JSON.parse(JSON.stringify(response)));
+      return new Todo(response);
     })).pipe(catchError(this.handleError));
     // will use this.http.post()
   }
@@ -50,7 +50,7 @@ export class ApiService {
   public getTodoById(todoId: number): Observable<Todo> {
     const options = this.getRequestOptions();
     return this.http.get(API_URL + '/todos/' + todoId, options).pipe(map(response => {
-      return new Todo(JSON.parse(JSON.stringify(response)));
+      return new Todo(response);
     })).pipe(catchError(this.handleError));
     // will use this.http.get()
   }
@@ -59,7 +59,7 @@ export class ApiService {
   public updateTodo(todo: Todo): Observable<Todo> {
     const options = this.getRequestOptions();
     return this.http.put(API_URL + '/todos/' + todo.id, todo, options).pipe(map(response => {
-      return new Todo(JSON.parse(JSON.stringify(response)));
+      return new Todo(response);
     })).pipe(catchError(this.handleError));
     // will use this.http.put()
   }

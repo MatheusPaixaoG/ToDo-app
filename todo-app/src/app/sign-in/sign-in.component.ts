@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
 
     // Submit request to API
     this.api.signIn(username, password).subscribe(
-      (response) => {
+      (response: any) => {
         this.auth.doSignIn(
           response.token,
           response.name

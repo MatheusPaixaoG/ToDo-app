@@ -21,12 +21,6 @@ export class TodosComponent implements OnInit {
     private router: Router) {
   }
 
-  // No longer needed, now handled by TodoListHeaderComponent
-  // addTodo(): void {
-  //   this.todoDataService.addTodo(this.newTodo);
-  //   this.newTodo = new Todo();
-  // }
-
   public ngOnInit() {
     this.route.data.pipe(map((data) => data['todos'])).subscribe(
       (todos) => {
