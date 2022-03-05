@@ -1,41 +1,61 @@
-<div class="sign-in-wrapper container">
+<div class="container mt-4">
   <form [formGroup]="frm">
-
-    <h1>Todos</h1>
-
-    <!-- Username input -->
-    <input type="text" formControlName="username" placeholder="Your username">
-
-    <!-- Username validation message -->
-    <div
-      class="input-errors"
-      *ngIf="(frm.get('username')?.invalid && frm.get('username')?.touched) || showInputErrors"
-    >
-      <div *ngIf="frm.get('username')?.hasError('required')">
-        Please enter your username
-      </div>
+    <div class="text-center">
+      <h1>Todos</h1>
     </div>
 
-    <!-- Password input -->
-    <input type="password" formControlName="password" placeholder="Your password">
+    <div class="card mt-4">
+      <h4 class="card-header">Login</h4>
+      <div class="card-body">
 
-    <!-- Password validation message -->
-    <div
-      class="input-errors"
-      *ngIf="(frm.get('password')?.invalid && frm.get('password')?.touched) || showInputErrors"
-    >
-      <div *ngIf="frm.get('password')?.hasError('required')">
-        Please enter your password
+        <div class="form-group">
+          <label for="formGroupInputUsername">Username</label>
+          <!-- Username input -->
+          <input type="text" class="form-control" id="formGroupInputUsername" formControlName="username" placeholder="Your username">
+        </div>
+    
+    
+        <!-- Username validation message -->
+        <div
+          class="input-errors text-danger"
+          *ngIf="(frm.get('username')?.invalid && frm.get('username')?.touched) || showInputErrors"
+        >
+          <div *ngIf="frm.get('username')?.hasError('required')">
+            Please enter your username
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formGroupInputPassword">Password</label>
+          <!-- Password input -->
+          <input type="text" class="form-control" id="formGroupInputPassword" formControlName="password" placeholder="Your password">
+        </div>
+        
+    
+        <!-- Password validation message -->
+        <div
+          class="input-errors text-danger"
+          *ngIf="(frm.get('password')?.invalid && frm.get('password')?.touched) || showInputErrors"
+        >
+          <div *ngIf="frm.get('password')?.hasError('required')">
+            Please enter your password
+          </div>
+        </div>
+
       </div>
+
+      
     </div>
+
+
 
     <!-- Sign-in error message -->
-    <div class="sign-in-error" *ngIf="hasFailed">
+    <div class="sign-in-error text-danger" *ngIf="hasFailed">
       Invalid username and password.
     </div>
 
     <!-- Sing-in button -->
-    <button (click)="doSignIn()" [disabled]="isBusy">
+    <button class="btn btn-primary mt-3" (click)="doSignIn()" [disabled]="isBusy">
       <ng-template [ngIf]="!isBusy">Sign in</ng-template>
       <ng-template [ngIf]="isBusy">Signing in, please wait...</ng-template>
     </button>

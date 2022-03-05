@@ -1,4 +1,6 @@
-<header class="header">
+<header class="header text-center container mt-4">
   <h1>Todos</h1>
-  <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+  <div class="form-outline">
+    <input class="new-todo form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+  </div>
 </header>
