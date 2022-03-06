@@ -1,12 +1,14 @@
-<section class="main text-center container" *ngIf="todos.length > 0">
-  <ul class="todo-list">
-    <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-      <!-- Re-emits the events from TodoListItemComponent -->
-      <app-todo-list-item 
-        [todo]="todo" 
-        (toggleComplete)="onToggleTodoComplete($event)" 
-        (remove)="onRemoveTodo($event)"></app-todo-list-item>
-      
-    </li>
-  </ul>
+<section class="main container" *ngIf="todos.length > 0">
+  <div class="card">
+    <ul class="todo-list list-group">
+      <li *ngFor="let todo of todos" class="list-group-item" [class.completed]="todo.complete">
+        <!-- Re-emits the events from TodoListItemComponent -->
+        <app-todo-list-item 
+          [todo]="todo" 
+          (toggleComplete)="onToggleTodoComplete($event)" 
+          (remove)="onRemoveTodo($event)"></app-todo-list-item>
+        
+      </li>
+    </ul>
+  </div>
 </section>

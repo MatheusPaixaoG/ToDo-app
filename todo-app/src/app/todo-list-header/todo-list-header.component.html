@@ -1,6 +1,8 @@
-<header class="header text-center container mt-4">
-  <h1>Todos</h1>
-  <div class="form-outline">
-    <input class="new-todo form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-  </div>
-</header>
+<div class="container">
+  <header class="header card text-center mt-4">
+    <h1 class="card-header">Todos</h1>
+    <div class="form-outline card-body">
+      <input class="new-todo form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+    </div>
+  </header>
+</div>

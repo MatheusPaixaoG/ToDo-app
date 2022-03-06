@@ -1,5 +1,5 @@
-<div class="view">
-  <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-  <label>{{todo.title}}</label>
-  <button class="destroy" (click)="removeTodo(todo)"></button>
+<div class="view form-check">
+  <input class="toggle form-check-input" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+  <label class="form-check-label">{{todo.title}}</label>
+  <button type="button" class="destroy btn-close float-end" aria-label="Close" (click)="removeTodo(todo)"></button>
 </div>
