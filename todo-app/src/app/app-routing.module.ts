@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CanActivateTodosGuard } from './can-activate-todos.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TodosResolver } from './todos.resolver';
 import { TodosComponent } from './todos/todos.component';
@@ -10,7 +11,7 @@ import { TodosComponent } from './todos/todos.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'sign-in',
+    redirectTo: 'register', // sign-in
     pathMatch: 'full'
   },
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
     resolve: {
       todos: TodosResolver
     }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '**',

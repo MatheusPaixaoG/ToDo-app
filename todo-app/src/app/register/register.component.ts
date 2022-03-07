@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class SignInComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   public frm!: FormGroup;
 
@@ -19,11 +18,12 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private auth: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) {
     this.frm = fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required]
     })
@@ -32,35 +32,21 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public doSignIn() {
-    // Make sure forms are valid
+  public doRegister() {
     if (this.frm.invalid) {
       this.showInputErrors = true;
       return;
     }
 
-    // Reset status
     this.isBusy = true;
     this.hasFailed = false;
 
-    // Grab values from form
+    const firstName = this.frm.get('firstName')?.value;
+    const lastName = this.frm.get('lastName')?.value;
     const username = this.frm.get('username')?.value;
     const password = this.frm.get('password')?.value;
 
-    // Submit request to API
-    this.api.signIn(username, password).subscribe({
-      next: (response: any) => {
-        this.auth.doSignIn(
-          response.token,
-          response.name
-        );
-        this.router.navigate(['todos']);
-      },
-      error: (error) => {
-        this.isBusy = false;
-        this.hasFailed = true;
-      }
-    });
+    this.api.register(firstName, lastName, username, password);
   }
 
 }
