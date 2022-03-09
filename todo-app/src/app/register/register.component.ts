@@ -46,7 +46,16 @@ export class RegisterComponent implements OnInit {
     const username = this.frm.get('username')?.value;
     const password = this.frm.get('password')?.value;
 
-    this.api.register(firstName, lastName, username, password);
+    this.api.register(firstName, lastName, username, password).subscribe({
+      next: (response: any) => {
+        console.log(response.name);
+        this.router.navigate(['sign-in']);
+      },
+      error: (error) => {
+        this.isBusy = false;
+        this.hasFailed = true;
+      }
+    });
   }
 
 }

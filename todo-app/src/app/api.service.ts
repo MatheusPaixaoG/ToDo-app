@@ -23,12 +23,12 @@ export class ApiService {
   }
 
   public register(firstName: string, lastName: string, username: string, password: string) {
-    console.log({
-      "firstName": firstName,
-      "lastName": lastName,
-      "username": username,
-      "password": password
-    });
+    return this.http.post(API_URL + '/register', {
+      firstName,
+      lastName,
+      username,
+      password
+    }).pipe(catchError(this.handleError));
   }
 
   private handleError(error: Response | any) {
