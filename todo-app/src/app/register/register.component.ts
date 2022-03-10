@@ -32,6 +32,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToSignIn() {
+    this.router.navigate(['/sign-in']);
+  }
+
   public doRegister() {
     if (this.frm.invalid) {
       this.showInputErrors = true;
@@ -48,7 +52,10 @@ export class RegisterComponent implements OnInit {
 
     this.api.register(firstName, lastName, username, password).subscribe({
       next: (response: any) => {
-        console.log(response.name);
+        console.log(response.id);
+        console.log(response.u);
+        console.log(response.users);
+        console.log(response.mp);
         this.router.navigate(['sign-in']);
       },
       error: (error) => {

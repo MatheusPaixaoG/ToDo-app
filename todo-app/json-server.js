@@ -5,7 +5,7 @@ const middlewares = jsonServer.defaults();
 const bodyParser = require('body-parser');
 const usersKey = 'angular-registration-todo-app';
 let mp = new Map();
-let users = JSON.parse(mp.get(usersKey)) || [];
+let users = [];
 
 // Sample JWT token for demo purposes
 const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2l0ZVBvaW50IFJ' +
@@ -21,7 +21,6 @@ server.use(bodyParser.json());
 server.post('/sign-in', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  console.log('chegou no post');
   if(username === 'demo' && password === 'demo') {
     res.json({
       name: 'SitePoint Reader',
@@ -37,7 +36,6 @@ server.post('/register', (req, res) => {
   const lastName = req.body.lastName;
   const username = req.body.username;
   const password = req.body.password;
-  console.log('chegou no post do register');
   if (users.find(x => x.username === username)) {
     res.send(422, 'Username "' + username + '" is already taken');
   }
@@ -50,9 +48,13 @@ server.post('/register', (req, res) => {
     "password": password
   };
   users.push(user);
-  mp.set(usersKey, JSON.stringify(users));
+  mp.set(id, JSON.stringify(users));
+  let u = mp.get(id);
   res.json({
-    name: 'deu tudo certo'
+    id,
+    u,
+    users,
+    mp
   })
 })
 

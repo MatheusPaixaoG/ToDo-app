@@ -39,9 +39,22 @@
           </form>
         </div>
       </div>
-      <button class="btn btn-primary mt-3" (click)="doRegister()" [disabled]="isBusy">
-        <ng-template [ngIf]="!isBusy">Register</ng-template>
-        <ng-template [ngIf]="isBusy"><span class="spinner-border spinner-border-sm mr-1"></span>Registering, please wait...</ng-template>
-      </button>
-      <a class="btn btn-link">Cancel</a>
+
+        <!-- Sign-in error message -->
+      <div class="sign-in-error text-danger" *ngIf="hasFailed">
+        Username is already taken.
+      </div>
+
+      <div class="d-flex">
+        <button class="btn btn-primary mt-3" (click)="doRegister()" [disabled]="isBusy">
+          <ng-template [ngIf]="!isBusy">Register</ng-template>
+          <ng-template [ngIf]="isBusy"><span class="spinner-border spinner-border-sm mr-1"></span>Registering, please wait...</ng-template>
+        </button>
+
+        <button class="btn btn-primary mt-3 ms-2" (click)="goToSignIn()" [disabled]="isBusy">
+          <ng-template [ngIf]="!isBusy">Login</ng-template>
+          <ng-template [ngIf]="isBusy"><span class="spinner-border spinner-border-sm mr-1"></span>Login</ng-template>
+        </button>
+        <a class="btn btn-link mt-3 ms-2">Cancel</a>
+      </div>
 </div>
