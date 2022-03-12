@@ -87,9 +87,6 @@ export class ApiService {
     const headers = {
       headers: new HttpHeaders().append('Authorization', 'Bearer ' + this.session.accessToken)
     }
-    // const headers = new HttpHeaders({
-    //   'Authorization': 'Bearer' + this.session.accessToken
-    // });
     return headers;
   }
 }
