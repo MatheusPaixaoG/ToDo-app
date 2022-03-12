@@ -47,18 +47,22 @@
 
 
 
-    <!-- Sign-in error message -->
-    <div class="sign-in-error text-danger" *ngIf="hasFailed">
-      Invalid username and password.
-    </div>
+  <!-- Sign-in error message -->
+  <div class="sign-in-error text-danger" *ngIf="hasFailed">
+    Invalid username and password.
+  </div>
 
-    <!-- Sing-in button -->
+  <!-- Sing-in button -->
+  <div class="d-flex">
     <button class="btn btn-primary mt-3" (click)="doSignIn()" [disabled]="isBusy">
       <ng-template [ngIf]="!isBusy">Sign in</ng-template>
       <ng-template [ngIf]="isBusy"><span class="spinner-border spinner-border-sm mr-1"></span>Signing in, please wait...</ng-template>
     </button>
 
-    <!-- Tip -->
-    <p class="tip">You can sign in with username "demo" and password "demo".</p>
+    <button class="btn btn-primary mt-3 ms-2" (click)="goToRegister()" [disabled]="isBusy">
+      <ng-template [ngIf]="!isBusy">Register</ng-template>
+      <ng-template [ngIf]="isBusy"><span class="spinner-border spinner-border-sm mr-1"></span>Register</ng-template>
+    </button>
+  </div>
 
 </div>

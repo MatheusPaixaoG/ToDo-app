@@ -32,6 +32,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+
   public doSignIn() {
     // Make sure forms are valid
     if (this.frm.invalid) {

@@ -21,7 +21,7 @@ server.use(bodyParser.json());
 server.post('/sign-in', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  if(username === 'demo' && password === 'demo') {
+  if(users.find(x => x.username == username && x.password == password)) {
     res.json({
       name: 'SitePoint Reader',
       token: jwtToken
