@@ -16,6 +16,14 @@ Here are the technologies used to develop this project.
 * [Karma framework](https://karma-runner.github.io/6.3/index.html)
  
  
+## 📲 Features
+
+- [x] User register
+- [x] User login
+- [x] Creation of todos
+- [x] Removal of todos
+- [ ] Maintain users registered after reload the page
+
 ## Services Used
  
 * Github
@@ -36,32 +44,13 @@ Here are the technologies used to develop this project.
  
 ## How to use
  
-Here will be the images and descriptions. Principal content.
- 
- 
-## Features
- 
-  - Here will be the features.
- 
+Here will be the images and descriptions. Principal content. 
  
 ## Links
  
-  - Link of deployed application: (if has been deployed)
-  - Repository: https://link_of_repository
-    - In case of sensitive bugs like security vulnerabilities, please contact
-      YOUR EMAIL directly instead of using issue tracker. We value your effort
-      to improve the security and privacy of this project!
- 
- 
-## Versioning
- 
-1.0.0.0
- 
+  - Based on the project: https://github.com/sitepoint-editors/angular-todo-app 
+
  
 ## Authors
  
-* **YOUR NAME**: @YOUR_GITHUB_NICKNAME (https://github.com/YOUR_GITHUB_NICKNAME)
- 
- 
-Please follow github and join us!
-Thanks to visiting me and good coding!
+ **Made with ❤ by Matheus Paixão**
