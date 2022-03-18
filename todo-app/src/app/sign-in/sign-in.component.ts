@@ -55,10 +55,12 @@ export class SignInComponent implements OnInit {
     this.api.signIn(username, password).subscribe({
       next: (response: any) => {
         console.log(response.name);
+        console.log(response.token);
         this.auth.doSignIn(
           response.token,
           response.name
         );
+        console.log('depois do auth')
         this.router.navigate(['todos']);
       },
       error: (error) => {

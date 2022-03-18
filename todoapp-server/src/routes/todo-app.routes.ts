@@ -15,6 +15,17 @@ todoRouter.route('/register').post((req, res) => {
   if (!newUser) {
     return res.status(422).json('Username "' + username + '" is already taken');
   }
-  return res.json({ newUser });
+  return res.json(newUser);
 })
+
+todoRouter.route('/sign-in')
+  .post((req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const signInUser = userController.signIn(username, password);
+    if (!signInUser) {
+      return res.status(422).json('Invalid username and password');
+    }
+    return res.json(signInUser);
+  })
 export default todoRouter;

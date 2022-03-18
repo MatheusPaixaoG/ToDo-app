@@ -1,5 +1,8 @@
 export class UserController {
   users: any[];
+  // Sample JWT token for demo purposes
+  jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2l0ZVBvaW50IFJ' +
+    'lYWRlciJ9.sS4aPcmnYfm3PQlTtH14az9CGjWkjnsDyG_1ats4yYg';
 
   constructor() {
     this.users = [];
@@ -19,5 +22,16 @@ export class UserController {
     };
     this.users.push(newUser);
     return this.users;
+  }
+
+  signIn(username: string, password: string) {
+    if (this.users.find(x => x.username === username && x.password === password)) {
+      const resp = {
+        name: 'SitePoint Reader',
+        token: this.jwtToken
+      };
+      return resp;
+    }
+    return 0;
   }
 }
