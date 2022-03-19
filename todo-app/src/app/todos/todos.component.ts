@@ -22,6 +22,7 @@ export class TodosComponent implements OnInit {
   }
 
   public ngOnInit() {
+    console.log('todos component');
     this.route.data.pipe(map((data) => data['todos'])).subscribe(
       (todos) => {
         this.todos = todos;

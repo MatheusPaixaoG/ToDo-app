@@ -42,7 +42,7 @@ export class ApiService {
   public getAllTodos(): Observable<Todo[]> {
     const options = this.getRequestOptions();
     return this.http.get(API_URL + '/todos', options).pipe(map(response => {
-      const todos = <any[]>response;
+      let todos = <any[]>response;
       return todos.map((todo) => new Todo(todo));
     })).pipe(catchError(this.handleError));
     // will use this.http.get()

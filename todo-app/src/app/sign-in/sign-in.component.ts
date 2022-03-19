@@ -60,7 +60,7 @@ export class SignInComponent implements OnInit {
           response.token,
           response.name
         );
-        console.log('depois do auth')
+        console.log('depois do auth');
         this.router.navigate(['todos']);
       },
       error: (error) => {
