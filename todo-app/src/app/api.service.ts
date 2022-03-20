@@ -11,8 +11,13 @@ const API_URL = environment.apiUrl;
   providedIn: 'root'
 })
 export class ApiService {
+  id!: number;
 
   constructor(private http: HttpClient, private session: SessionService) { }
+
+  public setId(id: number) {
+    this.id = id;
+  }
 
   public signIn(username: string, password: string) {
     return this.http
@@ -41,7 +46,7 @@ export class ApiService {
   // API: GET /todos
   public getAllTodos(): Observable<Todo[]> {
     const options = this.getRequestOptions();
-    return this.http.get(API_URL + '/todos', options).pipe(map(response => {
+    return this.http.get(API_URL + '/todos/' + this.id, options).pipe(map(response => {
       let todos = <any[]>response;
       return todos.map((todo) => new Todo(todo));
     })).pipe(catchError(this.handleError));

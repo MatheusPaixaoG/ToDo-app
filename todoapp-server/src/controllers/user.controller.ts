@@ -25,10 +25,12 @@ export class UserController {
   }
 
   signIn(username: string, password: string) {
-    if (this.users.find(x => x.username === username && x.password === password)) {
+    let x = this.users.find(x => x.username === username && x.password === password);
+    if (x) {
       const resp = {
         name: 'SitePoint Reader',
-        token: this.jwtToken
+        token: this.jwtToken,
+        id: x.id
       };
       return resp;
     }

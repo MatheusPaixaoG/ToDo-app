@@ -30,10 +30,11 @@ todoRouter.route('/sign-in')
     return res.json(signInUser);
   })
 
-todoRouter.route('/todos')
+todoRouter.route('/todos/:id')
   .get((req, res) => {
-    return res.json({
-      "todos": []
-    });
+    let id: number = parseInt(req.params.id);
+    return res.json(
+      []
+    );
   })
 export default todoRouter;

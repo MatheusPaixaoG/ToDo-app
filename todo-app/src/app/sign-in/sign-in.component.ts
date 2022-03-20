@@ -56,11 +56,13 @@ export class SignInComponent implements OnInit {
       next: (response: any) => {
         console.log(response.name);
         console.log(response.token);
+        console.log(response.id);
         this.auth.doSignIn(
           response.token,
           response.name
         );
         console.log('depois do auth');
+        this.api.setId(response.id);
         this.router.navigate(['todos']);
       },
       error: (error) => {

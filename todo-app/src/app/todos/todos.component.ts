@@ -14,6 +14,7 @@ export class TodosComponent implements OnInit {
 
   newTodo: Todo = new Todo();
   todos: Todo[] = [];
+  id!: number;
 
   constructor(private todoDataService: TodoDataService,
     private route: ActivatedRoute,
@@ -23,6 +24,10 @@ export class TodosComponent implements OnInit {
 
   public ngOnInit() {
     console.log('todos component');
+    // this.route.queryParams.subscribe(params => {
+    //   this.id = params['id'];
+    //   console.log(this.id);
+    // });
     this.route.data.pipe(map((data) => data['todos'])).subscribe(
       (todos) => {
         this.todos = todos;
