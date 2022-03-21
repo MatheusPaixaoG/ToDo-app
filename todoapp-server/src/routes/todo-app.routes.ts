@@ -1,8 +1,10 @@
 import { Router } from "express";
+import { TodosController } from "../controllers/todos.controller";
 import { UserController } from "../controllers/user.controller";
 
 const todoRouter = Router();
 const userController = new UserController;
+const todosController = new TodosController;
 let users = [];
 
 // Handle register requests
@@ -33,8 +35,9 @@ todoRouter.route('/sign-in')
 todoRouter.route('/todos/:id')
   .get((req, res) => {
     let id: number = parseInt(req.params.id);
-    return res.json(
-      []
-    );
+    const userTodos = todosController.getTodos(id);
+    console.log(id);
+    console.log(userTodos);
+    return res.json(userTodos);
   })
 export default todoRouter;
