@@ -58,9 +58,14 @@ export class ApiService {
   }
 
   // API: POST /todos
-  public createTodo(todo: Todo): Observable<Todo> {
+  public createTodo(todo: Todo, userId: number): Observable<Todo> {
     const options = this.getRequestOptions();
-    return this.http.post(API_URL + '/todos', todo, options).pipe(map(response => {
+    const todoTitle = todo.title;
+    const todoComplete = todo.complete;
+    return this.http.post(API_URL + '/todos/' + userId, {
+      todoTitle,
+      todoComplete
+    }, options).pipe(map(response => {
       return new Todo(response);
     })).pipe(catchError(this.handleError));
     // will use this.http.post()

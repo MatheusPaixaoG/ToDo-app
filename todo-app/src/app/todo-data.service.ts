@@ -19,7 +19,7 @@ export class TodoDataService {
 
   // Simulate POST /todos
   addTodo(todo: Todo): Observable<Todo> {
-    return this.api.createTodo(todo);
+    return this.api.createTodo(todo, this.api.getId());
   }
 
   // Simulate DELETE /todos/:id

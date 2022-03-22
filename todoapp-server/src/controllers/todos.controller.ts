@@ -15,12 +15,17 @@ export class TodosController {
   }
 
   createUserTodosList(userId: number) {
-    let todo = new Todo({
-      "title": "a",
-      "complete": false,
-      "id": 1
-    });
     this.todos.set(userId, []);
+  }
+
+  createTodos(userId: number, title: string, complete: boolean) {
+    let todoId = this.todos.get(userId).length ? this.todos.get(userId).length + 1 : 1;
+    let todo = new Todo({
+      "title": title,
+      "complete": complete,
+      "id": todoId
+    });
     this.todos.get(userId).push(todo);
+    return todo;
   }
 }

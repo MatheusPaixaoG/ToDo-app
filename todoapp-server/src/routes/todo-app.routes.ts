@@ -40,4 +40,13 @@ todoRouter.route('/todos/:id')
     console.log(userTodos);
     return res.json(userTodos);
   })
+  .post((req, res) => {
+    let id: number = parseInt(req.params.id);
+    const todoTitle = req.body.todoTitle;
+    const todoComplete = req.body.todoComplete;
+    console.log(todoTitle, todoComplete);
+    const newTodo = todosController.createTodos(id, todoTitle, todoComplete);
+    console.log(newTodo);
+    return res.json(newTodo);
+  })
 export default todoRouter;
