@@ -55,12 +55,11 @@ export class TodosComponent implements OnInit {
 
   // rename from removeTodo
   onRemoveTodo(todo: Todo): void {
-    this.todoDataService.deleteTodoById(todo.id).subscribe(
+    this.todoDataService.deleteTodoById(todo.id, todo.title).subscribe(
       (_) => {
         this.todos = this.todos.filter((t) => t.id !== todo.id);
       }
     );
-    this.todoDataService.deleteTodoById(todo.id);
   }
 
   doSignOut() {

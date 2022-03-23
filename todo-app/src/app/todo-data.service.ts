@@ -23,8 +23,8 @@ export class TodoDataService {
   }
 
   // Simulate DELETE /todos/:id
-  deleteTodoById(todoId: number): Observable<null> {
-    return this.api.deleteTodoById(todoId);
+  deleteTodoById(todoId: number, todoTitle: string): Observable<null> {
+    return this.api.deleteTodoById(todoId, this.api.getId(), todoTitle);
   }
 
   // Simulate PUT /todos/:id

@@ -90,9 +90,9 @@ export class ApiService {
   }
 
   // DELETE /todos/:id
-  public deleteTodoById(todoId: number): Observable<null> {
+  public deleteTodoById(todoId: number, userId: number, todoTitle: string): Observable<null> {
     const options = this.getRequestOptions();
-    return this.http.delete(API_URL + '/todos/' + todoId, options).pipe(map(response => null))
+    return this.http.delete(API_URL + '/todos/' + userId + '/' + todoId + '/' + todoTitle, options).pipe(map(response => null))
       .pipe(catchError(this.handleError));
     // will use this.http.delete()
   }

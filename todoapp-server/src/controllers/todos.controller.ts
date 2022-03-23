@@ -28,4 +28,10 @@ export class TodosController {
     this.todos.get(userId).push(todo);
     return todo;
   }
+
+  deleteTodoById(todoId: number, userId: number, todoTitle: string) {
+    let todoIdx = this.todos.get(userId).findIndex(t => t.id == todoId && t.title == todoTitle);
+    let deletedTodo = this.todos.get(userId).splice(todoIdx, 1);
+    return deletedTodo;
+  }
 }

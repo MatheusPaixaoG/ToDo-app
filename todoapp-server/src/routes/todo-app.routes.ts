@@ -36,17 +36,22 @@ todoRouter.route('/todos/:id')
   .get((req, res) => {
     let id: number = parseInt(req.params.id);
     const userTodos = todosController.getTodos(id);
-    console.log(id);
-    console.log(userTodos);
     return res.json(userTodos);
   })
   .post((req, res) => {
     let id: number = parseInt(req.params.id);
     const todoTitle = req.body.todoTitle;
     const todoComplete = req.body.todoComplete;
-    console.log(todoTitle, todoComplete);
     const newTodo = todosController.createTodos(id, todoTitle, todoComplete);
-    console.log(newTodo);
     return res.json(newTodo);
+  })
+todoRouter.route('/todos/:userId/:todoId/:todoTitle')
+  .delete((req, res) => {
+    let userId: number = parseInt(req.params.userId);
+    let todoId: number = parseInt(req.params.todoId);
+    let todoTitle: string = req.params.todoTitle;
+    const deletedTodo = todosController.deleteTodoById(todoId, userId, todoTitle);
+    console.log(deletedTodo);
+    return res.json(deletedTodo);
   })
 export default todoRouter;
