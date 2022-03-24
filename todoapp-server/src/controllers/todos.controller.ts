@@ -19,7 +19,7 @@ export class TodosController {
   }
 
   createTodos(userId: number, title: string, complete: boolean) {
-    let todoId = this.todos.get(userId).length ? this.todos.get(userId).length + 1 : 1;
+    let todoId = this.todos.get(userId).length ? this.todos.get(userId)[this.todos.get(userId).length - 1].id + 1 : 1;
     let todo = new Todo({
       "title": title,
       "complete": complete,
