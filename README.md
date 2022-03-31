@@ -41,6 +41,42 @@ Here are the technologies used to develop this project.
 * How to create a sign-in and register form using an Angular reactive form
 * How to create a route guard to prevent unauthorized access to parts of your application
 * How to send a user’s token as an Authorization Header in an HTTP request to your API
+
+## Pre-requisites
+1. Install latest NodeJS version into your machine from https://nodejs.org/en/download/.
+2. Install Angular CLI with `npm install -g @angular/cli`.
+
+## Getting started
+```bash
+# Clone the Git Repo into your Local Machine
+$ git clone https://github.com/MatheusPaixaoG/ToDo-app.git
+```
+
+### Server
+```bash
+# Install Dependencies
+$ cd ToDo-app
+$ cd todoapp-server
+$ npm install
+
+# Run the Application
+$ npm start
+
+# The server will be running on http://localhost:3000
+```
+
+### GUI
+```bash
+# Install Dependencies
+$ cd ToDo-app
+$ cd todo-app
+$ npm install
+
+# Run the Application
+$ npm start
+
+# Access http://localhost:4200 on your browser
+```
  
 ## Links
  
