@@ -22,29 +22,61 @@ Here are the technologies used to develop this project.
 - [x] User login
 - [x] Creation of todos
 - [x] Removal of todos
-- [ ] Maintain users registered after reload the page
+- [x] Maintain users registered after reload the page
 
-## Services Used
- 
-* Github
-* ...
- 
- 
-## Ruby Gems
-...
- 
+## Contents learned
+* How to initialize a new Angular application using Angular CLI
+* How to implement business logic in an Angular service and how to test our business logic with unit tests
+* How to use a component to interact with the user and how to delegate logic to a service using dependency injection
+* The basics of Angular template syntax
+* How to pass data into a component using property bindings
+* How to listen for events emitted by a component using event listeners
+* How to create smart and dumb components and why dumb components are a good practice
+* How to use the Angular HttpClient to perform HTTP requests
+* How to deal with Observables that are returned by the Angular HttpClient
+* How to create a mock REST API back end
+* How to set up Angular Router and configure routes for our application
+* How to handle unknown URLs
+* How to use a resolver to let Angular Router resolve data
+* How to create a sign-in and register form using an Angular reactive form
+* How to create a route guard to prevent unauthorized access to parts of your application
+* How to send a user’s token as an Authorization Header in an HTTP request to your API
+
+## Pre-requisites
+1. Install latest NodeJS version into your machine from https://nodejs.org/en/download/.
+2. Install Angular CLI with `npm install -g @angular/cli`.
+
 ## Getting started
- 
-* To install gems:
->    $ bundle install
-* To create the bank and do as migrations:
->    $ rake db:create db:migrate db:seed
-* To run the project:
->    $ rails s
- 
-## How to use
- 
-Here will be the images and descriptions. Principal content. 
+```bash
+# Clone the Git Repo into your Local Machine
+$ git clone https://github.com/MatheusPaixaoG/ToDo-app.git
+```
+
+### Server
+```bash
+# Install Dependencies
+$ cd ToDo-app
+$ cd todoapp-server
+$ npm install
+
+# Run the Application
+$ npm start
+
+# The server will be running on http://localhost:3000
+```
+
+### GUI
+```bash
+# Install Dependencies
+$ cd ToDo-app
+$ cd todo-app
+$ npm install
+
+# Run the Application
+$ npm start
+
+# Access http://localhost:4200 on your browser
+```
  
 ## Links
  
