@@ -46,9 +46,11 @@ export class TodosComponent implements OnInit {
 
   // rename from toggleTodoComplete
   onToggleTodoComplete(todo: Todo): void {
+    console.log(todo);
     this.todoDataService.toggleTodoComplete(todo).subscribe(
       (updatedTodo) => {
         todo = updatedTodo;
+        console.log(todo);
       }
     );
   }

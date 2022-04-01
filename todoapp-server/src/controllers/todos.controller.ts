@@ -34,4 +34,11 @@ export class TodosController {
     let deletedTodo = this.todos.get(userId).splice(todoIdx, 1);
     return deletedTodo;
   }
+
+  updateTodoById(todoId: number, userId: number, todoTitle: string, todoComplete: boolean) {
+    let todoIdx = this.todos.get(userId).findIndex(t => t.id == todoId && t.title == todoTitle);
+    this.todos.get(userId)[todoIdx] = new Todo({ todoId, todoTitle, todoComplete });
+    let updatedTodo = this.todos.get(userId).splice(todoIdx, 1);
+    return updatedTodo;
+  }
 }

@@ -32,19 +32,29 @@ todoRouter.route('/sign-in')
     return res.json(signInUser);
   })
 
-todoRouter.route('/todos/:id')
+todoRouter.route('/todos/:userId')
   .get((req, res) => {
-    let id: number = parseInt(req.params.id);
+    let id: number = parseInt(req.params.userId);
     const userTodos = todosController.getTodos(id);
     return res.json(userTodos);
   })
   .post((req, res) => {
-    let id: number = parseInt(req.params.id);
+    let id: number = parseInt(req.params.userId);
     const todoTitle = req.body.todoTitle;
     const todoComplete = req.body.todoComplete;
     const newTodo = todosController.createTodos(id, todoTitle, todoComplete);
     return res.json(newTodo);
   })
+  .put((req, res) => {
+    let userId: number = parseInt(req.params.userId);
+    const todoId = req.body.id;
+    const todoTitle = req.body.todoTitle;
+    const todoComplete = req.body.todoComplete;
+    const updatedTodo = todosController.updateTodoById(todoId, userId, todoTitle, todoComplete);
+    console.log(updatedTodo);
+    return res.json(updatedTodo);
+  })
+
 todoRouter.route('/todos/:userId/:todoId/:todoTitle')
   .delete((req, res) => {
     let userId: number = parseInt(req.params.userId);

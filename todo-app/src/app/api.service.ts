@@ -81,9 +81,10 @@ export class ApiService {
   }
 
   // API: PUT /todos/:id
-  public updateTodo(todo: Todo): Observable<Todo> {
+  public updateTodo(todo: Todo, userId: number): Observable<Todo> {
     const options = this.getRequestOptions();
-    return this.http.put(API_URL + '/todos/' + todo.id, todo, options).pipe(map(response => {
+    console.log('updateTodo');
+    return this.http.put(API_URL + '/todos/' + userId, todo, options).pipe(map(response => {
       return new Todo(response);
     })).pipe(catchError(this.handleError));
     // will use this.http.put()

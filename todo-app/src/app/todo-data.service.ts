@@ -29,7 +29,7 @@ export class TodoDataService {
 
   // Simulate PUT /todos/:id
   updateTodo(todo: Todo): Observable<Todo> {
-    return this.api.updateTodo(todo);
+    return this.api.updateTodo(todo, this.api.getId());
   }
 
   // Simulate GET /todos
@@ -46,6 +46,6 @@ export class TodoDataService {
   // Toggle todo complete
   toggleTodoComplete(todo: Todo) {
     todo.complete = !todo.complete;
-    return this.api.updateTodo(todo);
+    return this.api.updateTodo(todo, this.api.getId());
   }
 }
