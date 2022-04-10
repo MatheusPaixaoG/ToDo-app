@@ -34,7 +34,6 @@ export class TodoDataService {
 
   // Simulate GET /todos
   getAllTodos(): Observable<Todo[]> {
-    console.log(this.api.getId());
     return this.api.getAllTodos(this.api.getId());
   }
 

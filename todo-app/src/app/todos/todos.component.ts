@@ -23,11 +23,6 @@ export class TodosComponent implements OnInit {
   }
 
   public ngOnInit() {
-    console.log('todos component');
-    // this.route.queryParams.subscribe(params => {
-    //   this.id = params['id'];
-    //   console.log(this.id);
-    // });
     this.route.data.pipe(map((data) => data['todos'])).subscribe(
       (todos) => {
         this.todos = todos;
@@ -46,11 +41,9 @@ export class TodosComponent implements OnInit {
 
   // rename from toggleTodoComplete
   onToggleTodoComplete(todo: Todo): void {
-    console.log(todo);
     this.todoDataService.toggleTodoComplete(todo).subscribe(
       (updatedTodo) => {
         todo = updatedTodo;
-        console.log(todo);
       }
     );
   }

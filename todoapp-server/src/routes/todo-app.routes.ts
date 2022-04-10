@@ -51,7 +51,6 @@ todoRouter.route('/todos/:userId')
     const todoTitle = req.body.todoTitle;
     const todoComplete = req.body.todoComplete;
     const updatedTodo = todosController.updateTodoById(todoId, userId, todoTitle, todoComplete);
-    console.log(updatedTodo);
     return res.json(updatedTodo);
   })
 
@@ -61,7 +60,6 @@ todoRouter.route('/todos/:userId/:todoId/:todoTitle')
     let todoId: number = parseInt(req.params.todoId);
     let todoTitle: string = req.params.todoTitle;
     const deletedTodo = todosController.deleteTodoById(todoId, userId, todoTitle);
-    console.log(deletedTodo);
     return res.json(deletedTodo);
   })
 export default todoRouter;

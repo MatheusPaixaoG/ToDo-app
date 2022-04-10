@@ -54,14 +54,10 @@ export class SignInComponent implements OnInit {
     // Submit request to API
     this.api.signIn(username, password).subscribe({
       next: (response: any) => {
-        console.log(response.name);
-        console.log(response.token);
-        console.log(response.id);
         this.auth.doSignIn(
           response.token,
           response.name
         );
-        console.log('depois do auth');
         this.api.setId(response.id);
         this.router.navigate(['todos']);
       },
