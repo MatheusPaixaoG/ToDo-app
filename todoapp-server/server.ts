@@ -25,22 +25,22 @@ app.use(function (req, res, next) {
 app.use(express.json());
 app.use('/', todoRouter);
 
-// // Protect other routes
-// app.use((req, res, next) => {
-//   if (isAuthorized(req)) {
-//     console.log('Access granted');
-//     next();
-//   } else {
-//     console.log('Access denied, invalid JWT');
-//     res.sendStatus(401);
-//   }
-// });
+// Protect other routes
+app.use((req, res, next) => {
+  if (isAuthorized(req)) {
+    console.log('Access granted');
+    next();
+  } else {
+    console.log('Access denied, invalid JWT');
+    res.sendStatus(401);
+  }
+});
 
-// // Check whether request is allowed
-// function isAuthorized(req) {
-//   let bearer = req.get('Authorization');
-//   if (bearer === 'Bearer ' + jwtToken) {
-//     return true;
-//   }
-//   return false;
-// }
+// Check whether request is allowed
+function isAuthorized(req) {
+  let bearer = req.get('Authorization');
+  if (bearer === 'Bearer ' + jwtToken) {
+    return true;
+  }
+  return false;
+}

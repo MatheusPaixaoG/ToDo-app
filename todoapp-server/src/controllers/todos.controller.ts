@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { Todo } from "../models/todo";
 
 export class TodosController {
@@ -10,6 +11,13 @@ export class TodosController {
   getTodos(userId: number) {
     if (!this.todos.has(userId)) {
       this.createUserTodosList(userId);
+    }
+    let arrayWithNoBlank = this.todos.get(userId).filter((todo) => todo.title != '');
+    this.todos.set(userId, arrayWithNoBlank);
+    var start = Date.now(),
+      now = start;
+    while (now - start < 100) {
+      now = Date.now();
     }
     return this.todos.get(userId);
   }
