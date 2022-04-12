@@ -15,7 +15,10 @@ Here are the technologies used to develop this project.
 * [Git](https://git-scm.com/)
 * [Karma framework](https://karma-runner.github.io/6.3/index.html)
  
- 
+## Demonstration
+<p align="center"><img alt="TodoApp" title="#TodoApp" src="./assets/ToDo-app_gif.gif" /></p>
+
+
 ## 📲 Features
 
 - [x] User register
