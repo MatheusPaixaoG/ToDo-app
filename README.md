@@ -15,7 +15,7 @@ Here are the technologies used to develop this project.
 * [Git](https://git-scm.com/)
 * [Karma framework](https://karma-runner.github.io/6.3/index.html)
  
-## Demonstration
+## 🖥 Demonstration
 <p align="center"><img alt="TodoApp" title="#TodoApp" src="./assets/ToDo-app_gif.gif" /></p>
 
 
@@ -27,7 +27,7 @@ Here are the technologies used to develop this project.
 - [x] Removal of todos
 - [x] Maintain users registered after reload the page
 
-## Contents learned
+## 📖 Contents learned
 * How to initialize a new Angular application using Angular CLI
 * How to implement business logic in an Angular service and how to test our business logic with unit tests
 * How to use a component to interact with the user and how to delegate logic to a service using dependency injection
@@ -45,17 +45,17 @@ Here are the technologies used to develop this project.
 * How to create a route guard to prevent unauthorized access to parts of your application
 * How to send a user’s token as an Authorization Header in an HTTP request to your API
 
-## Pre-requisites
+## 🔙 Pre-requisites
 1. Install latest NodeJS version into your machine from https://nodejs.org/en/download/.
 2. Install Angular CLI with `npm install -g @angular/cli`.
 
-## Getting started
+## 🔰 Getting started
 ```bash
 # Clone the Git Repo into your Local Machine
 $ git clone https://github.com/MatheusPaixaoG/ToDo-app.git
 ```
 
-### Server
+###  Server
 ```bash
 # Install Dependencies
 $ cd ToDo-app
@@ -81,7 +81,7 @@ $ npm start
 # Access http://localhost:4200 on your browser
 ```
  
-## Links
+## 🔗 Links
  
   - Based on the project: https://github.com/sitepoint-editors/angular-todo-app 
 
