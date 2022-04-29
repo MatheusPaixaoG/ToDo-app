@@ -26,6 +26,10 @@ Here are the technologies used to develop this project.
 - [x] Creation of todos
 - [x] Removal of todos
 - [x] Maintain users registered after reload the page
+- [ ] Deploy the app to the Web
+- [ ] Improve the general architecture
+- [ ] Change bootstrap to CSS
+- [ ] Link the application to a MongoDB database
 
 ## 📖 Contents learned
 * How to initialize a new Angular application using Angular CLI
