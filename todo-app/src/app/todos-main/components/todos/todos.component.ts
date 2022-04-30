@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { AuthService } from '../auth.service';
-import { Todo } from '../todo';
-import { TodoDataService } from '../todo-data.service';
+import { AuthService } from '../../../auth.service';
+import { Todo } from '../../../todo';
+import { TodoDataService } from '../../../todo-data.service';
 
 @Component({
   selector: 'app-todos',

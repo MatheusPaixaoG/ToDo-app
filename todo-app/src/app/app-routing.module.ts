@@ -6,7 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegisterComponent } from './register/register.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TodosResolver } from './todos.resolver';
-import { TodosComponent } from './todos/todos.component';
+import { TodosComponent } from './todos-main/components/todos/todos.component';
 
 const routes: Routes = [
   {
