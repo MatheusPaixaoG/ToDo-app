@@ -8,7 +8,7 @@ import { TodoListHeaderComponent } from './todos-main/components/todo-list-heade
 import { TodoListComponent } from './todos-main/components/todo-list/todo-list.component';
 import { TodoListItemComponent } from './todos-main/components/todo-list-item/todo-list-item.component';
 import { TodoListFooterComponent } from './todos-main/components/todo-list-footer/todo-list-footer.component';
-import { TodoDataService } from './todo-data.service';
+import { TodoDataService } from './todos-main/services/todo-data.service';
 import { ApiService } from './api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TodosComponent } from './todos-main/components/todos/todos.component';

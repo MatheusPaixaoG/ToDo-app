@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ApiMockService } from '../../../api-mock.service';
 import { ApiService } from '../../../api.service';
-import { TodoDataService } from '../../../todo-data.service';
+import { TodoDataService } from '../../services/todo-data.service';
 
 import { TodosComponent } from './todos.component';
 

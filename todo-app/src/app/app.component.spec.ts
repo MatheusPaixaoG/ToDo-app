@@ -6,8 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ApiMockService } from './api-mock.service';
 import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
-import { Todo } from './todo';
-import { TodoDataService } from './todo-data.service';
+import { Todo } from './todos-main/types/todo';
+import { TodoDataService } from './todos-main/services/todo-data.service';
 
 describe('AppComponent', () => {
   let httpTestingController: HttpTestingController;

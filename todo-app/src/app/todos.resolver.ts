@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Todo } from './todo';
-import { TodoDataService } from './todo-data.service';
+import { Todo } from './todos-main/types/todo';
+import { TodoDataService } from './todos-main/services/todo-data.service';
 
 @Injectable()
 export class TodosResolver implements Resolve<Observable<Todo[]>> {

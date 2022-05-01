@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiService } from './api.service';
-import { Todo } from './todo';
+import { ApiService } from '../../api.service';
+import { Todo } from '../../todos-main/types/todo';
 
 @Injectable({
   providedIn: 'root'
