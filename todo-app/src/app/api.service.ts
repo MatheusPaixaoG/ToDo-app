@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Todo } from './todo';
+import { Todo } from './todos-main/types/todo';
 import { map, Observable, catchError, throwError, last } from 'rxjs';
 import { SessionService } from './session.service';
 
