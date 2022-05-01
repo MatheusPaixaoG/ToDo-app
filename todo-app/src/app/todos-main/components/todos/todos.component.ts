@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { AuthService } from '../../../auth.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { Todo } from '../../../todos-main/types/todo';
 import { TodoDataService } from '../../services/todo-data.service';
 
