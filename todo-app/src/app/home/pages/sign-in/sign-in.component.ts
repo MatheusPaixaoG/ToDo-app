@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../../api.service';
+import { AuthService } from '../../../core/auth/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
   public frm!: FormGroup;
 
@@ -18,12 +19,11 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private api: ApiService,
+    private auth: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) {
     this.frm = fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required]
     })
@@ -32,27 +32,34 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToSignIn() {
-    this.router.navigate(['/sign-in']);
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 
-  public doRegister() {
+  public doSignIn() {
+    // Make sure forms are valid
     if (this.frm.invalid) {
       this.showInputErrors = true;
       return;
     }
 
+    // Reset status
     this.isBusy = true;
     this.hasFailed = false;
 
-    const firstName = this.frm.get('firstName')?.value;
-    const lastName = this.frm.get('lastName')?.value;
+    // Grab values from form
     const username = this.frm.get('username')?.value;
     const password = this.frm.get('password')?.value;
 
-    this.api.register(firstName, lastName, username, password).subscribe({
+    // Submit request to API
+    this.api.signIn(username, password).subscribe({
       next: (response: any) => {
-        this.router.navigate(['sign-in']);
+        this.auth.doSignIn(
+          response.token,
+          response.name
+        );
+        this.api.setId(response.id);
+        this.router.navigate(['todos']);
       },
       error: (error) => {
         this.isBusy = false;
