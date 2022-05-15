@@ -88,6 +88,7 @@ $ npm start
 ## 🔗 Links
  
   - Based on the project: https://github.com/sitepoint-editors/angular-todo-app 
+  - Based on the architecture from: https://dev-academy.com/angular-architecture-best-practices/
 
  
 ## Authors
