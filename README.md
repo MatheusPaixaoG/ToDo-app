@@ -30,6 +30,7 @@ Here are the technologies used to develop this project.
 - [ ] Improve the general architecture
 - [ ] Change bootstrap to CSS
 - [ ] Link the application to a MongoDB database
+- [ ] Remove pseudo JWT authentication
 
 ## 📖 Contents learned
 * How to initialize a new Angular application using Angular CLI
